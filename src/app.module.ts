@@ -11,12 +11,12 @@ import { ConfigModule } from '@nestjs/config';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       useFactory: () => ({
-        type: 'postgres',
-        host: process.env.POSTGRES_HOST,
-        port: Number(process.env.POSTGRES_PORT),
-        username: process.env.POSTGRES_USER,
-        password: String(process.env.POSTGRES_PASSWORD),
-        database: process.env.POSTGRES_DB,
+        type: 'mysql',
+        host: process.env.DB_HOST,
+        port: Number(process.env.DB_PORT),
+        username: process.env.DB_USER,
+        password: String(process.env.DB_PASSWORD),
+        database: process.env.DB_DATABASE_NAME,
         entities: [join(__dirname, '**', '*.entity.{ts,js}')],
         synchronize: true,
       }),
